@@ -36,3 +36,27 @@ const courseSchema = new mongoose.Schema({
 const Course = mongoose.model('Course', courseSchema)
 
 export default Course;
+
+
+// {
+//     "courseTitle": "Test Course Title",
+//     "courseDescription": "test course Description",
+    
+//     "coursePrice": 50,
+//     "discount": 10,
+//     "courseContent": [{
+//     "chapterId": "ch01",
+//     "chapterOrder":1 ,
+//     "chapterTitle": "Test chapter title",
+//     "chapterContent": [{
+//     "lectureId": "lec01",
+//     "lectureTitle": "test lecture title",
+//     "lectureDuration": 20,
+//     "lectureUrl":"https://example.com/lectures/lec01.mp4" ,
+//     "isPreviewFree": true,
+//     "lectureOrder": 1
+// }]
+// }],
+    
+   
+// }
