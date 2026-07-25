@@ -87,7 +87,7 @@ export const purchaseCourse = async(req,res)=>{
             line_items: line_items,
             mode: 'payment',
             metadata:{
-                puchaseId: newPurchase._id.toString()
+                purchaseId: newPurchase._id.toString()
             }
         })
 
@@ -129,7 +129,8 @@ export const updateUserCourseProgress = async (req,res)=>{
 //Get user Course Progress
 export const getUserCourseProgress = async (req,res) =>{
     try{
-        const userId = req.auth();
+        // const userId = req.auth();
+        const { userId } = req.auth();
         const {courseId} = req.body
         const progressData = await CourseProgress.findOne({userId, courseId})
         res.json({success: true, progressData})
@@ -141,9 +142,10 @@ export const getUserCourseProgress = async (req,res) =>{
 //Add User Ratings to course
 
 export const addUserRating = async (req,res)=>{
-    const userId = req.auth();
+    // const userId = req.auth();
+    const { userId } = req.auth();
     const {courseId , rating}= req.body;
-    if(!courseId || !userId || !rating < 1 || rating > 5){
+    if(!courseId || !userId || !rating || rating < 1 || rating > 5){
         return res.json({success: false , message: 'InValid Details'})
     }
     try{
